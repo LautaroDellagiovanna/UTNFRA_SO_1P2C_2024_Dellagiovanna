@@ -44,21 +44,20 @@ contador=1
 contador2=1
 contador3=1
 
-while [ $contador -le 12 ]
+while [ $contador -le 11 ]
 do
 	if [ $contador -ne 4 ]
 	then
 		sudo mkfs -t ext4 ${DISK}${contador}
 		
-		if [ $contador -ne 11]
+		if [ $contador -ne 11 ]
 		then
 			echo $DISK$contador" /Examenes-UTN/alumno_"${contador2}"/parcial_"${contador3}" ext4 defaults 0 0" | sudo tee -a /etc/fstab
 			contador3=$(( contador3 + 1 ))
 		else
 			echo $DISK$contador" /Examenes-UTN/profesores/ ext4 defaults 0 0" | sudo tee -a /etc/fstab
 		fi
-		contador=$(( $contador + 1 ))
-
+		
 		if [ $contador2 -gt 3 ]
 		then
 			contador2=1
@@ -69,6 +68,7 @@ do
 			contador2=$(( contador2 + 1 ))
 		fi
 	fi
+	contador=$(( $contador + 1 ))
 done
 
 sudo mount -a
