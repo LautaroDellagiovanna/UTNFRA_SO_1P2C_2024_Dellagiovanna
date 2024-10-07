@@ -1,0 +1,3 @@
+MemTotal:        2010896 kB
+Chasis Information
+	Manufacturer: Oracle Corporation
